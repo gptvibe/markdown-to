@@ -10,6 +10,7 @@ const PLATFORM_LABELS: Record<PlatformId, string> = {
   whatsapp: 'WhatsApp',
   telegram: 'Telegram',
   discord: 'Discord',
+  plaintext: 'Plain Text (iMessage-friendly)',
 }
 
 const SAMPLE_INPUT = `# Introducing markdown-to by GPTVibe
@@ -54,7 +55,7 @@ function App() {
         <p className="eyebrow">markdown to</p>
         <h1>ChatGPT Markdown to Messaging Formats</h1>
         <p className="subtitle">
-          Convert standard Markdown into platform-ready output for WhatsApp, Telegram, and Discord.
+          Convert standard Markdown into platform-ready output for WhatsApp, Telegram, Discord, or plain text.
         </p>
         <a
           className="github-link"

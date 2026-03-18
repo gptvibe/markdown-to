@@ -80,7 +80,7 @@ function renderBlock(node: Content, context: Context, indent: number): string {
     case 'list':
       return renderList(node, context, indent)
     case 'code':
-      return renderCodeBlock(node)
+      return renderCodeBlock(node, context)
     case 'thematicBreak':
       return context.platform === 'discord' ? '---\n\n' : '----------\n\n'
     case 'table':
@@ -159,7 +159,11 @@ function renderListItem(
   return [`${prefix}${first}`, ...rest].join('\n')
 }
 
-function renderCodeBlock(node: Code): string {
+function renderCodeBlock(node: Code, context: Context): string {
+  if (context.platform === 'plaintext') {
+    return `${node.value}\n\n`
+  }
+
   const language = node.lang ? node.lang.trim() : ''
   const fence = language.length > 0 ? `\`\`\`${language}` : '```'
   return `${fence}\n${node.value}\n\`\`\`\n\n`
@@ -210,6 +214,10 @@ function renderHtmlBlock(node: Html, context: Context): string {
     return `__${content}__\n\n`
   }
 
+  if (context.platform === 'plaintext') {
+    return `${content}\n\n`
+  }
+
   warn(context, {
     feature: 'underline',
     level: 'degraded',
@@ -234,7 +242,7 @@ function renderInline(node: PhrasingContent, context: Context): string {
     case 'delete':
       return renderDelete(node, context)
     case 'inlineCode':
-      return renderInlineCode(node)
+      return renderInlineCode(node, context)
     case 'link':
       return renderLink(node, context)
     case 'break':
@@ -253,6 +261,10 @@ function renderText(node: Text): string {
 function renderStrong(node: Strong, context: Context): string {
   const content = renderInlines(extractPhrasingChildren(node), context)
 
+  if (context.platform === 'plaintext') {
+    return content
+  }
+
   if (context.platform === 'discord') {
     return `**${content}**`
   }
@@ -262,6 +274,11 @@ function renderStrong(node: Strong, context: Context): string {
 
 function renderEmphasis(node: Emphasis, context: Context): string {
   const content = renderInlines(extractPhrasingChildren(node), context)
+
+  if (context.platform === 'plaintext') {
+    return content
+  }
+
   if (context.platform === 'discord') {
     return `*${content}*`
   }
@@ -271,6 +288,11 @@ function renderEmphasis(node: Emphasis, context: Context): string {
 
 function renderDelete(node: Delete, context: Context): string {
   const content = renderInlines(extractPhrasingChildren(node), context)
+
+  if (context.platform === 'plaintext') {
+    return content
+  }
+
   if (context.platform === 'discord') {
     return `~~${content}~~`
   }
@@ -278,19 +300,27 @@ function renderDelete(node: Delete, context: Context): string {
   return `~${content}~`
 }
 
-function renderInlineCode(node: InlineCode): string {
+function renderInlineCode(node: InlineCode, context: Context): string {
   const content = node.value.replace(/`/g, '\\`')
+
+  if (context.platform === 'plaintext') {
+    return content
+  }
+
   return `\`${content}\``
 }
 
 function renderLink(node: Link, context: Context): string {
   const label = renderInlines(extractPhrasingChildren(node), context) || node.url
 
-  if (context.platform === 'whatsapp') {
+  if (context.platform === 'whatsapp' || context.platform === 'plaintext') {
     warn(context, {
       feature: 'link',
       level: 'degraded',
-      message: 'Labeled links were converted to readable text for WhatsApp compatibility.',
+      message:
+        context.platform === 'whatsapp'
+          ? 'Labeled links were converted to readable text for WhatsApp compatibility.'
+          : 'Labeled links were converted to readable text for plain text compatibility.',
     })
 
     if (label === node.url) {
@@ -320,6 +350,10 @@ function renderInlineHtml(node: Html, context: Context): string {
 
   if (context.platform === 'discord') {
     return `__${content}__`
+  }
+
+  if (context.platform === 'plaintext') {
+    return content
   }
 
   warn(context, {

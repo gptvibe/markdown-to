@@ -373,6 +373,26 @@ function DiscordPreview({ blocks }: { blocks: Block[] }) {
   )
 }
 
+function PlainTextPreview({ blocks }: { blocks: Block[] }) {
+  return (
+    <div className="pp-shell pp-im">
+      <div className="pp-bar pp-bar--im">
+        <div className="pp-bar-back" aria-hidden="true">‹</div>
+        <div className="pp-bar-info">
+          <div className="pp-bar-name">Messages</div>
+          <div className="pp-bar-sub">iMessage-friendly plain text</div>
+        </div>
+      </div>
+      <div className="pp-chat pp-chat--im">
+        <div className="pp-msg pp-msg--im">
+          <div className="pp-msg-body">{renderBlocks(blocks)}</div>
+          <div className="pp-msg-meta">11:59</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ─── Exported component ───────────────────────────────────────────────────────
 
 interface Props {
@@ -385,5 +405,6 @@ export function PlatformPreview({ platform, text }: Props) {
 
   if (platform === 'whatsapp') return <WhatsAppPreview blocks={blocks} />
   if (platform === 'telegram') return <TelegramPreview blocks={blocks} />
+  if (platform === 'plaintext') return <PlainTextPreview blocks={blocks} />
   return <DiscordPreview blocks={blocks} />
 }

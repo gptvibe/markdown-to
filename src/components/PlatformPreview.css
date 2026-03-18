@@ -282,6 +282,54 @@
   text-decoration: none;
 }
 
+/* ─── Plain Text (iMessage-friendly) ───────────────────────────────────────── */
+
+.pp-im {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  background: #f2f2f7;
+}
+
+.pp-bar--im {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7fb 100%);
+  color: #1d1d1f;
+  border-bottom: 1px solid #d8d8df;
+}
+
+.pp-chat--im {
+  align-items: flex-end;
+  background: #f2f2f7;
+}
+
+.pp-msg--im {
+  background: #0a84ff;
+  color: #ffffff;
+  border-radius: 18px 18px 4px 18px;
+  max-width: 86%;
+}
+
+.pp-msg--im .pp-msg-meta {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.pp-msg--im .pp-cb,
+.pp-msg--im .pp-icode {
+  background: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+}
+
+.pp-msg--im .pp-bq {
+  border-left: 3px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pp-msg--im a {
+  color: #d2ecff;
+}
+
+.pp-msg--im .pp-table td {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
 /* ─── Discord ────────────────────────────────────────────────────────────────── */
 
 .pp-dc {

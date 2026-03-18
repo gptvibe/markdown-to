@@ -1,4 +1,4 @@
-export type PlatformId = 'whatsapp' | 'telegram' | 'discord'
+export type PlatformId = 'whatsapp' | 'telegram' | 'discord' | 'plaintext'
 
 export type CompatibilityLevel = 'native' | 'transformed' | 'degraded' | 'unsupported'
 

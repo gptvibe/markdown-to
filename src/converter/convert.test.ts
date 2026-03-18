@@ -36,4 +36,15 @@ describe('convertMarkdown', () => {
     expect(result.output).toContain('| A | B |')
     expect(result.warnings.some((warning) => warning.feature === 'table')).toBe(true)
   })
+
+  it('strips markdown emphasis tokens for plain text mode', () => {
+    const result = convertMarkdown('**bold** _ital_ ~~old~~ `code`', 'plaintext')
+    expect(result.output).toBe('bold ital old code')
+  })
+
+  it('converts labeled links to readable text for plain text mode', () => {
+    const result = convertMarkdown('[Repo](https://github.com/gptvibe/markdown-to)', 'plaintext')
+    expect(result.output).toBe('Repo (https://github.com/gptvibe/markdown-to)')
+    expect(result.warnings.some((warning) => warning.feature === 'link')).toBe(true)
+  })
 })
