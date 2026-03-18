@@ -1,0 +1,516 @@
+/* ─── Shared shell ───────────────────────────────────────────────────────────── */
+
+.pp-shell {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  font-size: 0.875rem;
+  min-height: 340px;
+}
+
+/* ─── Top bar ────────────────────────────────────────────────────────────────── */
+
+.pp-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+
+.pp-bar-back {
+  font-size: 1.4rem;
+  line-height: 1;
+  opacity: 0.9;
+  margin-right: 0.1rem;
+}
+
+.pp-bar-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-size: cover;
+}
+
+.pp-bar-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+.pp-bar-sub {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.pp-bar-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+}
+
+/* ─── Chat area ──────────────────────────────────────────────────────────────── */
+
+.pp-chat {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* ─── Message bubble ─────────────────────────────────────────────────────────── */
+
+.pp-msg {
+  max-width: 88%;
+  padding: 0.45rem 0.6rem 0.25rem;
+  word-break: break-word;
+}
+
+.pp-msg-body {
+  line-height: 1.45;
+}
+
+.pp-msg-meta {
+  font-size: 0.67rem;
+  text-align: right;
+  margin-top: 0.2rem;
+  opacity: 0.65;
+}
+
+/* ─── Shared inline & block styles (inside .pp-msg-body or .pp-dc-content) ───── */
+
+.pp-msg-body .pp-para,
+.pp-dc-content .pp-para {
+  margin: 0 0 0.35rem;
+}
+
+.pp-msg-body .pp-para:last-child,
+.pp-dc-content .pp-para:last-child {
+  margin-bottom: 0;
+}
+
+.pp-msg-body .pp-bq,
+.pp-dc-content .pp-bq {
+  margin: 0.3rem 0;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+
+.pp-msg-body .pp-bq p,
+.pp-dc-content .pp-bq p {
+  margin: 0;
+}
+
+.pp-msg-body .pp-ul,
+.pp-msg-body .pp-ol,
+.pp-dc-content .pp-ul,
+.pp-dc-content .pp-ol {
+  margin: 0.25rem 0;
+  padding-left: 1.3rem;
+}
+
+.pp-msg-body .pp-ul li,
+.pp-msg-body .pp-ol li,
+.pp-dc-content .pp-ul li,
+.pp-dc-content .pp-ol li {
+  margin: 0.1rem 0;
+}
+
+.pp-msg-body .pp-cb,
+.pp-dc-content .pp-cb {
+  margin: 0.35rem 0;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8em;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.pp-msg-body .pp-cb code,
+.pp-dc-content .pp-cb code {
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 1em;
+}
+
+.pp-cb-lang {
+  display: block;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35em;
+  opacity: 0.55;
+}
+
+.pp-icode {
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 0.87em;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+
+.pp-h1,
+.pp-h2,
+.pp-h3 {
+  margin: 0.15rem 0 0.25rem;
+  line-height: 1.2;
+}
+
+.pp-h1 { font-size: 1.15em; font-weight: 700; }
+.pp-h2 { font-size: 1.0em;  font-weight: 600; }
+.pp-h3 { font-size: 0.95em; font-weight: 600; }
+
+.pp-table-wrap {
+  overflow-x: auto;
+  margin: 0.3rem 0;
+}
+
+.pp-table {
+  border-collapse: collapse;
+  font-size: 0.82em;
+  width: 100%;
+}
+
+.pp-table td {
+  padding: 0.25rem 0.45rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+}
+
+.pp-table-head td {
+  font-weight: 600;
+}
+
+/* ─── WhatsApp ───────────────────────────────────────────────────────────────── */
+
+.pp-wa {
+  font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+  background: #ece5dd;
+}
+
+.pp-bar--wa {
+  background: #075e54;
+  color: #fff;
+}
+
+.pp-bar-avatar--wa {
+  background: #25d366 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Ccircle cx='18' cy='18' r='18' fill='%2325D366'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3E🤖%3C/text%3E%3C/svg%3E") center / cover;
+}
+
+.pp-chat--wa {
+  background-color: #ece5dd;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' opacity='0.04'%3E%3Cpath d='M30 3 L57 18 L57 42 L30 57 L3 42 L3 18 Z' fill='none' stroke='%23075E54' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+.pp-msg--wa {
+  background: #dcf8c6;
+  border-radius: 8px 0 8px 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.13);
+}
+
+.pp-msg--wa .pp-bq {
+  border-left: 3px solid #0f9b8e;
+  background: rgba(7, 94, 84, 0.07);
+}
+
+.pp-msg--wa .pp-cb {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.pp-msg--wa .pp-icode {
+  background: rgba(0, 0, 0, 0.09);
+}
+
+.pp-msg--wa a {
+  color: #127e87;
+}
+
+.pp-ticks {
+  color: #4fc3f7;
+  margin-left: 2px;
+}
+
+/* ─── Telegram ───────────────────────────────────────────────────────────────── */
+
+.pp-tg {
+  font-family: -apple-system, 'SF Pro Text', system-ui, sans-serif;
+  background: #e6ebf0;
+}
+
+.pp-bar--tg {
+  background: linear-gradient(90deg, #2381c9 0%, #2ea6ff 100%);
+  color: #fff;
+}
+
+.pp-bar-avatar--tg {
+  background: #2ea6ff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Ccircle cx='18' cy='18' r='18' fill='%232EA6FF'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='18' font-family='sans-serif'%3E💾%3C/text%3E%3C/svg%3E") center / cover;
+}
+
+.pp-chat--tg {
+  background: #e6ebf0;
+}
+
+.pp-msg--tg {
+  background: #ffffff;
+  border-radius: 12px 0 12px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pp-msg--tg .pp-bq {
+  border-left: 3px solid #2381c9;
+  background: rgba(35, 129, 201, 0.07);
+}
+
+.pp-msg--tg .pp-cb {
+  background: #f0f2f5;
+}
+
+.pp-msg--tg .pp-icode {
+  background: #f0f2f5;
+  color: #c0392b;
+}
+
+.pp-msg--tg a {
+  color: #2381c9;
+  text-decoration: none;
+}
+
+/* ─── Discord ────────────────────────────────────────────────────────────────── */
+
+.pp-dc {
+  flex-direction: row;
+  font-family: 'gg sans', system-ui, sans-serif;
+  background: #36393f;
+}
+
+/* Guild sidebar */
+.pp-dc-sidebar {
+  width: 64px;
+  background: #202225;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 0;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.pp-dc-guild {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #36393f;
+  transition: border-radius 0.15s ease;
+}
+
+.pp-dc-guild--active {
+  border-radius: 30%;
+  background: #5865f2;
+}
+
+.pp-dc-guild--dim {
+  opacity: 0.4;
+}
+
+.pp-dc-sep {
+  width: 32px;
+  height: 2px;
+  background: #36393f;
+  border-radius: 1px;
+}
+
+/* Channel sidebar */
+.pp-dc-channels {
+  width: 200px;
+  background: #2f3136;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.pp-dc-server-name {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.875rem 0.75rem;
+  border-bottom: 1px solid #26282c;
+  flex-shrink: 0;
+}
+
+.pp-dc-channel-group {
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #8e9297;
+  padding: 0.65rem 0.5rem 0.2rem 0.75rem;
+}
+
+.pp-dc-channel {
+  padding: 0.3rem 0.5rem 0.3rem 0.75rem;
+  color: #8e9297;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  margin: 0.1rem 0.5rem;
+  cursor: default;
+}
+
+.pp-dc-channel--active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #dcddde;
+}
+
+/* Main area */
+.pp-dc-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  background: #36393f;
+}
+
+.pp-dc-topbar {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #26282c;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  background: #36393f;
+}
+
+.pp-dc-topbar-hash {
+  color: #8e9297;
+  margin-right: 0.25rem;
+}
+
+.pp-chat--dc {
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.pp-dc-msg {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.pp-dc-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #5865f2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.pp-dc-msgbody {
+  flex: 1;
+  min-width: 0;
+}
+
+.pp-dc-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.pp-dc-username {
+  color: #7289da;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.pp-dc-ts {
+  color: #72767d;
+  font-size: 0.7rem;
+}
+
+.pp-dc-content {
+  color: #dcddde;
+  line-height: 1.5;
+}
+
+/* Discord-specific block overrides */
+.pp-dc-content .pp-h1 {
+  color: #fff;
+  font-size: 1.35em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid #4f545c;
+  margin-bottom: 0.4rem;
+}
+
+.pp-dc-content .pp-h2 {
+  color: #fff;
+  font-size: 1.12em;
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid #4f545c;
+  margin-bottom: 0.35rem;
+}
+
+.pp-dc-content .pp-h3 {
+  color: #fff;
+  font-size: 1em;
+}
+
+.pp-dc-content .pp-bq {
+  border-left: 4px solid #4f545c;
+  background: none;
+  color: #a3a6aa;
+  padding-left: 0.75rem;
+}
+
+.pp-dc-content .pp-cb {
+  background: #2f3136;
+  border: 1px solid #26282c;
+  color: #dcddde;
+}
+
+.pp-dc-content .pp-icode {
+  background: #2f3136;
+  color: #f47fff;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pp-dc-content .pp-table td {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #dcddde;
+}
+
+.pp-dc-content a {
+  color: #00aff4;
+  text-decoration: none;
+}
+
+.pp-dc-content .pp-ul,
+.pp-dc-content .pp-ol {
+  color: #dcddde;
+}
+
+/* ─── Responsive: hide channel list on narrow containers ─────────────────────── */
+@media (max-width: 600px) {
+  .pp-dc-channels {
+    display: none;
+  }
+  .pp-dc-sidebar {
+    width: 48px;
+  }
+  .pp-dc-guild {
+    width: 36px;
+    height: 36px;
+  }
+}
