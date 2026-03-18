@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="100%" style="stop-color:#0f1e2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0f766e"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="card-wa" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3a2a"/>
+      <stop offset="100%" style="stop-color:#12281e"/>
+    </linearGradient>
+    <linearGradient id="card-tg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2a3a"/>
+      <stop offset="100%" style="stop-color:#121e28"/>
+    </linearGradient>
+    <linearGradient id="card-dc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2a3a"/>
+      <stop offset="100%" style="stop-color:#1e1e2e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+
+  <!-- Accent gradient bar top -->
+  <rect x="0" y="0" width="1200" height="5" fill="url(#accent)"/>
+
+  <!-- Brand badge -->
+  <rect x="60" y="55" width="130" height="34" rx="17" fill="#0f766e" fill-opacity="0.25" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="125" y="77" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#34d399" text-anchor="middle" letter-spacing="1">GPTVIBE</text>
+
+  <!-- Main heading -->
+  <text x="60" y="175" font-family="system-ui, -apple-system, sans-serif" font-size="68" font-weight="800" fill="#ffffff" letter-spacing="-2">markdown-to</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#94a3b8" letter-spacing="-0.5">Convert ChatGPT Markdown into platform-ready formatting</text>
+
+  <!-- Platform cards -->
+  <!-- WhatsApp -->
+  <rect x="60" y="300" width="330" height="240" rx="18" fill="url(#card-wa)" stroke="#25d366" stroke-opacity="0.3" stroke-width="1.5"/>
+  <rect x="60" y="300" width="330" height="48" rx="18" fill="#075e54"/>
+  <rect x="60" y="328" width="330" height="20" rx="0" fill="#075e54"/>
+  <circle cx="100" cy="324" r="16" fill="#25d366"/>
+  <text x="100" y="330" font-family="system-ui" font-size="16" text-anchor="middle" fill="white">💬</text>
+  <text x="126" y="319" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#ffffff">GPTVibe</text>
+  <text x="126" y="335" font-family="system-ui, sans-serif" font-size="11" fill="#a7f3d0">online</text>
+  <rect x="80" y="368" width="270" height="74" rx="10" fill="#dcf8c6" fill-opacity="0.12" stroke="#25d366" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="96" y="390" font-family="system-ui, sans-serif" font-size="13" fill="#dcf8c6">*Bold* _italic_ ~strike~</text>
+  <text x="96" y="410" font-family="system-ui, sans-serif" font-size="13" fill="#a7f3d0">`code` &gt; blockquote</text>
+  <text x="96" y="430" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">11:59 ✓✓</text>
+  <text x="225" y="520" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#25d366" text-anchor="middle">WhatsApp</text>
+
+  <!-- Telegram -->
+  <rect x="435" y="300" width="330" height="240" rx="18" fill="url(#card-tg)" stroke="#2ea6ff" stroke-opacity="0.3" stroke-width="1.5"/>
+  <rect x="435" y="300" width="330" height="48" rx="18" fill="#1c6ea4"/>
+  <rect x="435" y="328" width="330" height="20" rx="0" fill="#1c6ea4"/>
+  <circle cx="475" cy="324" r="16" fill="#2ea6ff"/>
+  <text x="475" y="330" font-family="system-ui" font-size="16" text-anchor="middle" fill="white">💾</text>
+  <text x="501" y="319" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#ffffff">GPTVibe</text>
+  <text x="501" y="335" font-family="system-ui, sans-serif" font-size="11" fill="#bae6fd">online</text>
+  <rect x="455" y="368" width="270" height="74" rx="10" fill="#ffffff" fill-opacity="0.07" stroke="#2ea6ff" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="471" y="390" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">*Bold* _italic_ ~strike~</text>
+  <text x="471" y="410" font-family="system-ui, sans-serif" font-size="13" fill="#bae6fd">`code` &gt; blockquote</text>
+  <text x="471" y="430" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">11:59</text>
+  <text x="600" y="520" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#2ea6ff" text-anchor="middle">Telegram</text>
+
+  <!-- Discord -->
+  <rect x="810" y="300" width="330" height="240" rx="18" fill="url(#card-dc)" stroke="#5865f2" stroke-opacity="0.3" stroke-width="1.5"/>
+  <rect x="810" y="300" width="330" height="48" rx="18" fill="#36393f"/>
+  <rect x="810" y="328" width="330" height="20" rx="0" fill="#36393f"/>
+  <text x="830" y="329" font-family="system-ui, sans-serif" font-size="13" fill="#8e9297"># general</text>
+  <text x="830" y="349" font-family="system-ui, sans-serif" font-size="13" fill="#8e9297">GPTVibe server</text>
+  <circle cx="840" cy="383" r="14" fill="#5865f2"/>
+  <text x="840" y="389" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="white">G</text>
+  <text x="862" y="378" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#7289da">GPTVibe</text>
+  <text x="862" y="393" font-family="system-ui, sans-serif" font-size="11" fill="#72767d">Today at 11:59 AM</text>
+  <text x="862" y="415" font-family="system-ui, sans-serif" font-size="13" fill="#dcddde">**Bold** *italic* ~~strike~~</text>
+  <text x="862" y="433" font-family="system-ui, sans-serif" font-size="13" fill="#f47fff">`code`</text>
+  <text x="975" y="520" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#5865f2" text-anchor="middle">Discord</text>
+
+  <!-- Arrow between sections -->
+  <text x="600" y="265" font-family="system-ui, sans-serif" font-size="26" fill="#0f766e" text-anchor="middle">↓ paste &amp; preview instantly ↓</text>
+
+  <!-- GitHub badge bottom right -->
+  <text x="1140" y="610" font-family="system-ui, sans-serif" font-size="13" fill="#475569" text-anchor="end">github.com/gptvibe/markdown-to</text>
+</svg>

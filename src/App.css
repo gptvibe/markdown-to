@@ -32,6 +32,28 @@
   color: var(--muted);
 }
 
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.github-link:hover {
+  background: var(--ink);
+  color: #fff;
+  border-color: transparent;
+}
+
 .control-row {
   display: flex;
   align-items: center;

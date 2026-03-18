@@ -286,7 +286,7 @@ function WhatsAppPreview({ blocks }: { blocks: Block[] }) {
         <div className="pp-bar-back" aria-hidden="true">‹</div>
         <div className="pp-bar-avatar pp-bar-avatar--wa" aria-hidden="true" />
         <div className="pp-bar-info">
-          <div className="pp-bar-name">ChatGPT</div>
+          <div className="pp-bar-name">GPTVibe</div>
           <div className="pp-bar-sub">online</div>
         </div>
         <div className="pp-bar-actions" aria-hidden="true">
@@ -316,7 +316,7 @@ function TelegramPreview({ blocks }: { blocks: Block[] }) {
         <div className="pp-bar-back" aria-hidden="true">‹</div>
         <div className="pp-bar-avatar pp-bar-avatar--tg" aria-hidden="true" />
         <div className="pp-bar-info">
-          <div className="pp-bar-name">Saved Messages</div>
+          <div className="pp-bar-name">GPTVibe</div>
           <div className="pp-bar-sub">online</div>
         </div>
         <div className="pp-bar-actions" aria-hidden="true">
@@ -346,7 +346,7 @@ function DiscordPreview({ blocks }: { blocks: Block[] }) {
         <div className="pp-dc-guild pp-dc-guild--dim" />
       </div>
       <div className="pp-dc-channels" aria-hidden="true">
-        <div className="pp-dc-server-name">My Server</div>
+        <div className="pp-dc-server-name">GPTVibe</div>
         <div className="pp-dc-channel-group">TEXT CHANNELS</div>
         <div className="pp-dc-channel pp-dc-channel--active"># general</div>
         <div className="pp-dc-channel"># random</div>
@@ -358,10 +358,10 @@ function DiscordPreview({ blocks }: { blocks: Block[] }) {
         </div>
         <div className="pp-chat pp-chat--dc">
           <div className="pp-dc-msg">
-            <div className="pp-dc-avatar" aria-hidden="true">U</div>
+            <div className="pp-dc-avatar" aria-hidden="true">G</div>
             <div className="pp-dc-msgbody">
               <div className="pp-dc-meta">
-                <span className="pp-dc-username">You</span>
+                <span className="pp-dc-username">GPTVibe</span>
                 <span className="pp-dc-ts">Today at 11:59 AM</span>
               </div>
               <div className="pp-dc-content">{renderBlocks(blocks)}</div>
