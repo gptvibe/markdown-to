@@ -12,22 +12,31 @@ const PLATFORM_LABELS: Record<PlatformId, string> = {
   discord: 'Discord',
 }
 
-const SAMPLE_INPUT = `# Product Update
+const SAMPLE_INPUT = `# Introducing markdown-to by GPTVibe
 
-Hey team, here is the **launch summary**:
+Hey everyone! 🎉 We just launched **markdown-to** — a free tool that converts ChatGPT-style Markdown into _platform-ready_ formatting for WhatsApp, Telegram, and Discord.
 
-1. The *mobile build* is live.
-2. Please review \`/release-notes\`.
-3. Escalations should go to [On-call Guide](https://example.com/on-call).
+Built entirely with [GitHub Copilot](https://github.com/features/copilot) as a pair-programming session — from converter engine to Docker deployment.
 
-> Shipping quality matters more than speed.
+## What it does
 
-| Area | Status |
-| --- | --- |
-| Auth | Done |
-| Billing | In review |
+1. Paste any **ChatGPT** response into the editor
+2. Pick your *target platform*
+3. Copy the converted output — ready to send!
 
-Thanks!`
+> No more asterisks showing up as literal text in WhatsApp. Just clean, properly formatted messages.
+
+\`\`\`bash
+docker run -d -p 43817:80 gptvibe/markdown-to:latest
+\`\`\`
+
+| Platform | Bold | Italic | Strikethrough |
+| --- | --- | --- | --- |
+| WhatsApp | *text* | _text_ | ~text~ |
+| Telegram | *text* | _text_ | ~text~ |
+| Discord | **text** | *text* | ~~text~~ |
+
+Give it a try and ⭐ the repo at [github.com/gptvibe/markdown-to](https://github.com/gptvibe/markdown-to)!`
 
 function App() {
   const [input, setInput] = useState<string>(SAMPLE_INPUT)
