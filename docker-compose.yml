@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    image: markdown-to:local
+    ports:
+      - "43817:80"
+    restart: unless-stopped
