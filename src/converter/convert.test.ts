@@ -47,4 +47,19 @@ describe('convertMarkdown', () => {
     expect(result.output).toBe('Repo (https://github.com/gptvibe/markdown-to)')
     expect(result.warnings.some((warning) => warning.feature === 'link')).toBe(true)
   })
+
+  it('escapes literal formatting characters for WhatsApp text nodes', () => {
+    const result = convertMarkdown('Use * and _ and ~ literally', 'whatsapp')
+    expect(result.output).toBe('Use \\* and \\_ and \\~ literally')
+  })
+
+  it('escapes link punctuation in Telegram text nodes', () => {
+    const result = convertMarkdown('Use [A] (B) literally', 'telegram')
+    expect(result.output).toBe('Use \\[A\\] \\(B\\) literally')
+  })
+
+  it('escapes backslashes and markdown punctuation for Discord text nodes', () => {
+    const result = convertMarkdown('Path C:\\\\temp and literal [x] with * marker', 'discord')
+    expect(result.output).toBe('Path C:\\\\temp and literal \\[x\\] with \\* marker')
+  })
 })

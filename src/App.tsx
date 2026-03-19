@@ -44,9 +44,22 @@ function App() {
   const [platform, setPlatform] = useState<PlatformId>('whatsapp')
 
   const result = useMemo(() => convertMarkdown(input, platform), [input, platform])
+  const presetOutputs = useMemo(
+    () => ({
+      whatsapp: convertMarkdown(input, 'whatsapp').output,
+      telegram: convertMarkdown(input, 'telegram').output,
+      discord: convertMarkdown(input, 'discord').output,
+      plaintext: convertMarkdown(input, 'plaintext').output,
+    }),
+    [input],
+  )
 
   const copyOutput = async (): Promise<void> => {
     await navigator.clipboard.writeText(result.output)
+  }
+
+  const copyPreset = async (target: PlatformId): Promise<void> => {
+    await navigator.clipboard.writeText(presetOutputs[target])
   }
 
   return (
@@ -95,6 +108,20 @@ function App() {
         <button type="button" onClick={copyOutput}>
           Copy Output
         </button>
+        <div className="copy-preset-group" aria-label="Copy preset outputs">
+          <button type="button" className="button-secondary" onClick={() => copyPreset('whatsapp')}>
+            Copy WhatsApp
+          </button>
+          <button type="button" className="button-secondary" onClick={() => copyPreset('telegram')}>
+            Copy Telegram
+          </button>
+          <button type="button" className="button-secondary" onClick={() => copyPreset('discord')}>
+            Copy Discord
+          </button>
+          <button type="button" className="button-secondary" onClick={() => copyPreset('plaintext')}>
+            Copy Plain Text
+          </button>
+        </div>
       </section>
 
       <section className="editor-grid">

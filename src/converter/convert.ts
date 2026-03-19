@@ -234,7 +234,7 @@ function renderInlines(nodes: PhrasingContent[], context: Context): string {
 function renderInline(node: PhrasingContent, context: Context): string {
   switch (node.type) {
     case 'text':
-      return renderText(node)
+      return renderText(node, context)
     case 'strong':
       return renderStrong(node, context)
     case 'emphasis':
@@ -254,8 +254,41 @@ function renderInline(node: PhrasingContent, context: Context): string {
   }
 }
 
-function renderText(node: Text): string {
-  return node.value
+function renderText(node: Text, context: Context): string {
+  return escapeLiteralText(node.value, context.platform)
+}
+
+function escapeLiteralText(value: string, platform: PlatformId): string {
+  if (platform === 'plaintext') {
+    return value
+  }
+
+  if (platform === 'whatsapp') {
+    return escapeWithSet(value, new Set(['*', '_', '~', '`']))
+  }
+
+  if (platform === 'telegram') {
+    return escapeWithSet(value, new Set(['*', '_', '~', '`', '[', ']', '(', ')']))
+  }
+
+  return escapeWithSet(value, new Set(['\\', '*', '_', '~', '`', '[', ']', '(', ')']))
+}
+
+function escapeWithSet(value: string, chars: Set<string>): string {
+  let output = ''
+
+  for (let i = 0; i < value.length; i += 1) {
+    const current = value[i]
+    const previous = i > 0 ? value[i - 1] : ''
+    if (chars.has(current) && previous !== '\\') {
+      output += `\\${current}`
+      continue
+    }
+
+    output += current
+  }
+
+  return output
 }
 
 function renderStrong(node: Strong, context: Context): string {

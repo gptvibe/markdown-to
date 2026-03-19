@@ -94,6 +94,24 @@ button:hover {
   background: var(--primary-strong);
 }
 
+.button-secondary {
+  background: #fff;
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+.button-secondary:hover {
+  background: #f7f8fa;
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+.copy-preset-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
 .editor-grid,
 .preview-grid {
   display: grid;
